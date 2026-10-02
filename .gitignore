@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/
+logs/
+ml/data/raw/
+ml/data/processed/
+.pytest_cache/
+*.db

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        AI Adaptive Cyber Threat Detection
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div>
+            <h1>
+                AI-Powered Adaptive Cyber Threat Detection
+            </h1>
+
+            <p>
+                Threat Monitoring & Response Dashboard
+            </p>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            SYSTEM ONLINE
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <section class="summary-grid">
+
+            <div class="card">
+                <h3>Total Events</h3>
+                <div
+                    id="total-events"
+                    class="metric"
+                >
+                    -
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>High Risk</h3>
+                <div
+                    id="high-risk"
+                    class="metric danger"
+                >
+                    -
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Medium Risk</h3>
+                <div
+                    id="medium-risk"
+                    class="metric warning"
+                >
+                    -
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Low Risk</h3>
+                <div
+                    id="low-risk"
+                    class="metric safe"
+                >
+                    -
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>
+                        Recent Security Events
+                    </h2>
+
+                    <p>
+                        AI classification, anomaly detection,
+                        risk assessment and response.
+                    </p>
+                </div>
+
+                <button
+                    onclick="loadDashboard()"
+                    class="refresh-button"
+                >
+                    Refresh
+                </button>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Time</th>
+                            <th>Classification</th>
+                            <th>Attack Probability</th>
+                            <th>Anomaly</th>
+                            <th>Risk Score</th>
+                            <th>Risk Level</th>
+                            <th>Response</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="events-table">
+
+                        <tr>
+                            <td colspan="8">
+                                Loading events...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>
+                        Adaptive Analyst Feedback
+                    </h2>
+
+                    <p>
+                        Feedback collected for future model review.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="feedback-grid">
+
+                <div class="feedback-box">
+                    <span>Total Feedback</span>
+
+                    <strong id="total-feedback">
+                        -
+                    </strong>
+                </div>
+
+                <div class="feedback-box">
+                    <span>Benign</span>
+
+                    <strong id="benign-feedback">
+                        -
+                    </strong>
+                </div>
+
+                <div class="feedback-box">
+                    <span>Attack</span>
+
+                    <strong id="attack-feedback">
+                        -
+                    </strong>
+                </div>
+
+                <div class="feedback-box">
+                    <span>Status</span>
+
+                    <strong id="adaptation-status">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        AI Adaptive Cyber Threat Detection & Response System
+    </footer>
+
+
+    <script
+        src="/static/js/dashboard.js"
+    ></script>
+
+</body>
+</html>

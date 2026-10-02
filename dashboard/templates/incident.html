@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Security Event Details</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<header class="topbar">
+
+    <div>
+
+        <h1>
+            Security Event Investigation
+        </h1>
+
+        <p>
+            AI detection and risk analysis
+        </p>
+
+    </div>
+
+
+    <a
+        href="/dashboard"
+        class="refresh-button"
+    >
+        Back to Dashboard
+    </a>
+
+</header>
+
+
+<main class="container">
+
+    <!-- EVENT SUMMARY -->
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+                    Event #<span id="event-id">-</span>
+                </h2>
+
+                <p id="event-time">
+                    Loading...
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-grid">
+
+            <div class="card">
+
+                <h3>
+                    Classification
+                </h3>
+
+                <div
+                    id="classification"
+                    class="metric"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Attack Probability
+                </h3>
+
+                <div
+                    id="attack-probability"
+                    class="metric"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Risk Score
+                </h3>
+
+                <div
+                    id="risk-score"
+                    class="metric"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Risk Level
+                </h3>
+
+                <div
+                    id="risk-level"
+                    class="metric"
+                >
+                    -
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DETECTION ANALYSIS -->
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+                    Detection Analysis
+                </h2>
+
+                <p>
+                    Combined classifier and anomaly detection results.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="feedback-grid">
+
+            <div class="feedback-box">
+
+                <span>
+                    Anomaly Detected
+                </span>
+
+                <strong id="anomaly">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="feedback-box">
+
+                <span>
+                    Anomaly Score
+                </span>
+
+                <strong id="anomaly-score">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="feedback-box">
+
+                <span>
+                    Response Mode
+                </span>
+
+                <strong>
+                    SIMULATION
+                </strong>
+
+            </div>
+
+
+            <div class="feedback-box">
+
+                <span>
+                    Actions
+                </span>
+
+                <strong id="response">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ANALYST FEEDBACK -->
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+                    Analyst Feedback
+                </h2>
+
+                <p>
+                    Human review associated with this event.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Existing feedback -->
+
+        <div
+            id="feedback-container"
+            class="feedback-grid"
+        >
+
+            Loading...
+
+        </div>
+
+
+        <!-- Submit feedback -->
+
+        <div
+            style="
+                margin-top: 25px;
+                padding: 20px;
+                border-top: 1px solid #334155;
+            "
+        >
+
+            <h3>
+                Submit Analyst Review
+            </h3>
+
+            <p>
+                Provide human feedback for future model review.
+            </p>
+
+
+            <label
+                for="analyst-label"
+                style="
+                    display: block;
+                    margin-top: 15px;
+                    margin-bottom: 8px;
+                "
+            >
+                Analyst Classification
+            </label>
+
+
+            <select
+                id="analyst-label"
+                style="
+                    width: 100%;
+                    padding: 12px;
+                    background: #111827;
+                    color: white;
+                    border: 1px solid #475569;
+                    border-radius: 6px;
+                "
+            >
+
+                <option value="BENIGN">
+                    BENIGN
+                </option>
+
+                <option value="ATTACK">
+                    ATTACK
+                </option>
+
+            </select>
+
+
+            <label
+                for="analyst-comment"
+                style="
+                    display: block;
+                    margin-top: 15px;
+                    margin-bottom: 8px;
+                "
+            >
+                Analyst Comment
+            </label>
+
+
+            <textarea
+                id="analyst-comment"
+                rows="4"
+                placeholder="Enter your observations about this security event..."
+                style="
+                    width: 100%;
+                    padding: 12px;
+                    background: #111827;
+                    color: white;
+                    border: 1px solid #475569;
+                    border-radius: 6px;
+                    resize: vertical;
+                    box-sizing: border-box;
+                "
+            ></textarea>
+
+
+            <button
+                onclick="submitFeedback()"
+                class="refresh-button"
+                style="
+                    margin-top: 15px;
+                    border: none;
+                    cursor: pointer;
+                "
+            >
+                Submit Feedback
+            </button>
+
+
+            <div
+                id="feedback-message"
+                style="
+                    margin-top: 15px;
+                    font-weight: bold;
+                "
+            ></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="/static/js/incident.js"></script>
+
+</body>
+
+</html>
